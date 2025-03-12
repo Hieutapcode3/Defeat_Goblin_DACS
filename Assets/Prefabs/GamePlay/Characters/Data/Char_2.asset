@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff215762a16eb444cb117e005018d807, type: 3}
+  m_Name: Char_2
+  m_EditorClassIdentifier: 
+  level: 1
+  prefab: {fileID: 5780140789256676890, guid: cd09b9fea69ef4a9fbe0510fc7067cb5, type: 3}
+  renderTexture: {fileID: 8400000, guid: 8d3ab6a6bcae24b968b720b0c1571ca6, type: 2}
+  type: 0
+  damage: 10
+  speed: 0
+  health: 0
+  goldPerSecond: 0

@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5fddcffce8334f0eba6365d4c929017, type: 3}
+  m_Name: ResourcesData
+  m_EditorClassIdentifier: 
+  resourceDatas:
+  - key: 0
+    type: 4
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Home
+    spriteValue: {fileID: 0}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 0}
+  - key: 1
+    type: 5
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: 3e32f8c411f68419081c503bbf7665c7, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 0}
+  - key: 2
+    type: 5
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: 15e4e13518d9141bfaa56beb1436980f, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 0}
+  - key: 3
+    type: 5
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: 357ecca68d27548b48ee9ec83f4b9ef5, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 0}
+  - key: 4
+    type: 5
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: 9b5876a10e84445d8972fc1e342ea0a7, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 0}
+  - key: 5
+    type: 7
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: 9b5876a10e84445d8972fc1e342ea0a7, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 5617900443939047604, guid: f3b5fec6d85bb4f3bb78c85a12e32ea9, type: 3}
+  - key: 6
+    type: 7
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: 9b5876a10e84445d8972fc1e342ea0a7, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 5201557036716009168, guid: c7062ca4ef0584e388993dee3e953019, type: 3}
+  - key: 7
+    type: 7
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: 9b5876a10e84445d8972fc1e342ea0a7, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 1858242544268061170, guid: 14803f890fb504006bfbfeee59cc27c0, type: 3}
+  - key: 8
+    type: 5
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: d4eacb39739044f45a92e0613726bf18, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 1858242544268061170, guid: 14803f890fb504006bfbfeee59cc27c0, type: 3}
+  - key: 9
+    type: 5
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: ae831d4f7ae7941f2a4fb11307429aea, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 1858242544268061170, guid: 14803f890fb504006bfbfeee59cc27c0, type: 3}
+  - key: 10
+    type: 7
+    stringValue: 
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    enumTypeName: UIScreen
+    enumValue: Level
+    spriteValue: {fileID: 21300000, guid: ae831d4f7ae7941f2a4fb11307429aea, type: 3}
+    transformValue: {fileID: 0}
+    gameObjectValue: {fileID: 5617900443939047604, guid: c8f17e542ab0b419e830eba68aec98a9, type: 3}

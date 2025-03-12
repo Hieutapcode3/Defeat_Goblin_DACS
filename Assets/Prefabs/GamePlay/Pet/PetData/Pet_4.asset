@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff215762a16eb444cb117e005018d807, type: 3}
+  m_Name: Pet_4
+  m_EditorClassIdentifier: 
+  level: 3
+  prefab: {fileID: 3625478364743359707, guid: 7704c8ca711694d8295362495828259a, type: 3}
+  renderTexture: {fileID: 8400000, guid: 0bb192eff67284d68afe57568a5f841c, type: 2}
+  type: 1
+  damage: 0
+  speed: 0
+  health: 0
+  goldPerSecond: 0
