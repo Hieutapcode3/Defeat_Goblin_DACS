@@ -13,6 +13,7 @@ public static class SaveSystem
 
     public static GameData LoadGame()
     {
+        Debug.Log(savePath);
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);

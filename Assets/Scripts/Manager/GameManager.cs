@@ -46,7 +46,6 @@ public class GameManager : BaseSingleton<GameManager>
     }
     protected override void Awake()
     {
-        //Application.targetFrameRate = 60;
         base.Awake();
     }
     private void Battle()

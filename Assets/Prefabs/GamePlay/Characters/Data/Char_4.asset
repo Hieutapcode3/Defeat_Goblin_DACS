@@ -15,7 +15,8 @@ MonoBehaviour:
   level: 3
   prefab: {fileID: 5009958487011265738, guid: 0a1895bcd2d90424c86ffd47018e8e48, type: 3}
   renderTexture: {fileID: 8400000, guid: 9ad908655ef044fba88c9dd599b23fbe, type: 2}
-  damage: 0
+  type: 0
+  damage: 10
   speed: 0
   health: 0
   goldPerSecond: 0
