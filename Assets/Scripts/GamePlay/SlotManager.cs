@@ -91,6 +91,7 @@ public class SlotManager : BaseSingleton<SlotManager>
         {
             slot.Occupied();
         }
+        GoldManager.Instance.UpdateGoldPerSecondTxt();
     }
 
     public void UpdateEntity(int index)
@@ -140,5 +141,18 @@ public class SlotManager : BaseSingleton<SlotManager>
             .Where(slot => slot.slotData.entityData == null && slot.slotData.index <= gameData.currentSlots)
             .OrderBy(slot => slot.slotData.index)
             .FirstOrDefault();
+    }
+    public int GetGoldEarnInSecondAmout()
+    {
+        int count = 0;
+        foreach(SlotController slot in slots)
+        {
+            if (slot.IsBuy)
+            {
+                if(slot.currentEntity != null)
+                    count += slot.currentEntity.entityData.goldPerSecond;
+            }
+        }
+        return count;
     }
 }

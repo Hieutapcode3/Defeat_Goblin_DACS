@@ -13,12 +13,12 @@ public static class SaveSystem
 
     public static GameData LoadGame()
     {
-        Debug.Log(savePath);
+        //Debug.Log(savePath);
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
             GameData data = JsonUtility.FromJson<GameData>(json);
-            Debug.Log("Game Loaded!");
+            //Debug.Log("Game Loaded!");
             return data;
         }
         else

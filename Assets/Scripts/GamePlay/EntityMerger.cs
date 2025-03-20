@@ -135,6 +135,9 @@ public class EntityMerger : BaseSingleton<EntityMerger>
                 SlotManager.Instance.UpdateSlot(currentSlotData.index);
                 SlotManager.Instance.UpdateSlot(selectedSlotData.index);
                 SaveSystem.SaveGame(gameData);
+                Debug.Log("After save:");
+                Debug.Log($"current: {currentSlotData.entityData.type} {currentSlotData.entityData.level} (ID: {currentSlotData.entityData.GetInstanceID()})");
+                Debug.Log($"selected: {selectedSlotData.entityData.type} {selectedSlotData.entityData.level} (ID: {selectedSlotData.entityData.GetInstanceID()})");
                 CancelMerge();
                 return;
             }

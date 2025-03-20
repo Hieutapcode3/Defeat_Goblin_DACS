@@ -8,7 +8,7 @@ public class EntityData : ScriptableObject
     public RenderTexture renderTexture;
     public EntityType type;
     public int damage;
-    public float speed;
-    public int health;
+    //public float speed;
+    //public int health;
     public int goldPerSecond;
 }

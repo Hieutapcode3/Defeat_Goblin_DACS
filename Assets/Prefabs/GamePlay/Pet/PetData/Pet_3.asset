@@ -17,6 +17,4 @@ MonoBehaviour:
   renderTexture: {fileID: 8400000, guid: 627f605b83caa4940996d89f44568c5e, type: 2}
   type: 1
   damage: 0
-  speed: 0
-  health: 0
-  goldPerSecond: 0
+  goldPerSecond: 25

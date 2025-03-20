@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HomeUI : BaseUI
 {
     public TextMeshProUGUI goldText;
+    public TextMeshProUGUI goldEarnInSecond;
     public Button btnBuySlot;
     public Button btnBuyChar;
     public Button btnBuyPet;

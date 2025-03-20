@@ -9,6 +9,7 @@ public class GoldManager : BaseSingleton<GoldManager>
 {
     private Image goldGroup;
     private TextMeshProUGUI goldText;
+    private TextMeshProUGUI goldPerSecondTxt;
     private GameData gameData;
     private int displayGold;
     private int targetGold;
@@ -24,10 +25,16 @@ public class GoldManager : BaseSingleton<GoldManager>
         this.notEnoughGoldsText = homeUI.notEnoughGoldsText;
         this.goldText = homeUI.goldText;
         this.gameData = data;
+        this.goldPerSecondTxt = homeUI.goldEarnInSecond;
 
         targetGold = gameData.gold;
         displayGold = gameData.gold;
         UpdateUI();
+    }
+    public void UpdateGoldPerSecondTxt()
+    {
+        int goldAmount = SlotManager.Instance.GetGoldEarnInSecondAmout();
+        goldPerSecondTxt.text = GameDataManager.Instance.FormatPrice(goldAmount) + "/Sec";
     }
 
     public void AddGold(int amount, ParticleImage particleImage = null)

@@ -1,13 +1,14 @@
 using UnityEngine;
 
-public class CameraFollowTouch : MonoBehaviour
+public class CameraFollowMouse : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    private Vector2 startTouchPosition;
-    private Vector2 currentTouchPosition;
-    private bool isSwiping = false;
+    private Vector2 startMousePosition;
+    private Vector2 currentMousePosition;
+    private bool isDragging = false;
     private Rigidbody2D rb;
     private Vector2 targetPosition;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -15,37 +16,28 @@ public class CameraFollowTouch : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         targetPosition = this.transform.position;
     }
+
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            Touch touch = Input.GetTouch(0);
+            startMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            isDragging = true;
+        }
+        if (Input.GetMouseButton(0) && isDragging)
+        {
+            currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mouseDelta = (currentMousePosition - startMousePosition).normalized;
 
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    startTouchPosition = touch.position;
-                    isSwiping = true;
-                    break;
-
-                case TouchPhase.Moved:
-                    if (isSwiping)
-                    {
-                        currentTouchPosition = touch.position;
-                        Vector2 swipeDelta = (currentTouchPosition - startTouchPosition).normalized;
-
-                        Vector3 moveDirection = new Vector3(-swipeDelta.x, -swipeDelta.y, 0);
-                        //transform.position += moveDirection * moveSpeed * Time.deltaTime;
-                        targetPosition = rb.position + (Vector2)moveDirection * moveSpeed * Time.deltaTime;
-                    }
-                    break;
-
-                case TouchPhase.Ended:
-                    isSwiping = false;
-                    break;
-            }
+            Vector3 moveDirection = new Vector3(-mouseDelta.x, -mouseDelta.y, 0);
+            targetPosition = rb.position + (Vector2)moveDirection * moveSpeed * Time.deltaTime;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
         }
     }
+
     void FixedUpdate()
     {
         rb.MovePosition(Vector2.MoveTowards(rb.position, targetPosition, moveSpeed * Time.fixedDeltaTime));

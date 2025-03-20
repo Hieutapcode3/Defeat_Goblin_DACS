@@ -44,7 +44,7 @@ public class AudioManager : BaseSingleton<AudioManager>
                 Debug.LogWarning($"AudioClip '{audioName}' not found at path: {path}");
             }
         }
-        Debug.Log("SoundDic Count:" + _soundDic.Count);
+        //Debug.Log("SoundDic Count:" + _soundDic.Count);
     }
     public void PlaySoundEffect(SoundEffect audioName)
     {

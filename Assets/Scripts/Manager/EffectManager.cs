@@ -30,7 +30,7 @@ public class EffectManager : BaseSingleton<EffectManager>
                 Debug.LogWarning($"Effect '{effectName}' not found at path: {path}");
             }
         }
-        Debug.Log("EffectDic Count:" + _effect.Count);
+        //Debug.Log("EffectDic Count:" + _effect.Count);
     }
 
     public ParticleSystem PlayEffect(VisualEffect name, bool isDestroy = true)

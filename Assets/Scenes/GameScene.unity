@@ -15648,7 +15648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640, y: -86}
+  m_AnchoredPosition: {x: 259, y: -86}
   m_SizeDelta: {x: 362, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376756062
@@ -22313,7 +22313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &545283072
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28073,7 +28073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 988, y: -86}
+  m_AnchoredPosition: {x: 607, y: -86}
   m_SizeDelta: {x: 240, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677921332
@@ -93307,6 +93307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldText: {fileID: 1365404843}
+  goldEarnInSecond: {fileID: 677921332}
   btnBuySlot: {fileID: 1666183247}
   btnBuyChar: {fileID: 627784005}
   btnBuyPet: {fileID: 397530442}
