@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EntityMerger : BaseSingleton<EntityMerger>
 {
@@ -19,6 +20,7 @@ public class EntityMerger : BaseSingleton<EntityMerger>
     private Dictionary<SpriteRenderer, float> originalAlphaValues = new Dictionary<SpriteRenderer, float>();
     private void Update()
     {
+        if (UIManager.Instance.GetUI<UnlockNewLevelUI>().gameObject.activeSelf) return;
         HandleMouseInput();
     }
     private void HandleMouseInput()
@@ -59,6 +61,7 @@ public class EntityMerger : BaseSingleton<EntityMerger>
         if (selectedEntity == null) return;
         cloneCharacter = Instantiate(selectedEntity.gameObject, selectedEntity.transform.position, Quaternion.identity);
         SpriteRenderer[] renderers = cloneCharacter.GetComponentsInChildren<SpriteRenderer>();
+        cloneCharacter.GetComponent<SortingGroup>().sortingOrder += 66;
         foreach (var sr in renderers)
         {
             sr.sortingOrder += 66;

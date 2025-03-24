@@ -60,4 +60,11 @@ public class LevelManager : BaseSingleton<LevelManager>
     {
         if (currentLevel) DestroyImmediate(currentLevel);
     }
+    public void CompletedLevel()
+    {
+        currentLevelIndex++;
+        GameData currentData = SaveSystem.LoadGame();
+        currentData.currentLevel = currentLevelIndex;
+        SaveSystem.SaveGame(currentData);
+    }
 }

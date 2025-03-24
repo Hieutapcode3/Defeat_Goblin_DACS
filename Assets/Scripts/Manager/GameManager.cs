@@ -10,6 +10,7 @@ public class GameManager : BaseSingleton<GameManager>
 
     public bool isWin { get; private set; } = false;
     public bool isLose { get; private set; } = false;
+    public bool isInBattle { get; private set; }
     public GameDataCollection gameDataCollection;
     [SerializeField] private GameObject HomeObjects;
     public CinemachineVirtualCamera cinemachineVirtual;
@@ -60,6 +61,7 @@ public class GameManager : BaseSingleton<GameManager>
                     true,
                     () =>
                     {
+                        isInBattle = true;
                         HomeObjects.SetActive(false);
                         LevelManager.Instance.LoadMap(gameData.currentLevel);
                         StartCoroutine(LevelController.Instance.GenerateMapCoroutine(onComplete: () =>
@@ -94,8 +96,8 @@ public class GameManager : BaseSingleton<GameManager>
                 .SetEase(Ease.InOutSine);
         }
 
-        blackScreen.transform.DOScale(Vector3.one * 200, 2f).SetEase(Ease.InOutSine);
-        blackScreen.DOFade(1f, 2f)
+        blackScreen.transform.DOScale(Vector3.one * 200, 1f).SetEase(Ease.InOutSine);
+        blackScreen.DOFade(1f, 1f)
             .SetEase(Ease.InOutSine)
             .OnComplete(() =>
             {
@@ -135,6 +137,7 @@ public class GameManager : BaseSingleton<GameManager>
                 ShowBlackScreen(false,
                     () =>
                     {
+                        isInBattle = false;
                         ClearMap();
                         EntitySpawner.Instance.ClearEntities();
                         cinemachineVirtual.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10);

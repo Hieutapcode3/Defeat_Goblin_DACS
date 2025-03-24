@@ -73,7 +73,7 @@ public class EntitySpawner : BaseSingleton<EntitySpawner>
     public void RemoveBaseEntity(BaseEntity baseEntity) {
         this.baseEntities.Remove(baseEntity);
         if (baseEntities.Count() == 0) {
-            // Lose
+            GameManager.Instance.LoseGame();
         }
     }
 

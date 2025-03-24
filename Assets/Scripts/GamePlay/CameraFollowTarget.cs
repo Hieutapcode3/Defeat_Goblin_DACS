@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollowMouse : MonoBehaviour
 {
@@ -19,6 +19,7 @@ public class CameraFollowMouse : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.isWin || GameManager.Instance.isLose) return;
         if (Input.GetMouseButtonDown(0))
         {
             startMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

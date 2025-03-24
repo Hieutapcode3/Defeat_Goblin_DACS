@@ -38,6 +38,7 @@ public enum VisualEffect
 public enum GameLevel
 {
     Level_1,
+    Level_2,
 }
 
 // Create New Enum Here

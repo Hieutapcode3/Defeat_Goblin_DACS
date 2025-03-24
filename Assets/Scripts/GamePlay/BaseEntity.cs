@@ -31,9 +31,9 @@ public abstract class BaseEntity : MonoBehaviour
         if (!health.TakeDamage(damage))
         {
             if (entityData.type == EntityType.Enemy)
-            {
                 LevelController.Instance.RemoveEnemy(slot);
-            }
+            else
+                EntitySpawner.Instance.RemoveBaseEntity(this);
             Destroy(gameObject);
         }
     }

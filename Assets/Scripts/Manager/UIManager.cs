@@ -83,7 +83,10 @@ public class UIManager : BaseSingleton<UIManager>
             bt,
             () =>
             {
-                ChangeUI(UIScreen.Gameplay);
+                if (!GameManager.Instance.isInBattle)
+                    ChangeUI(UIScreen.Home);
+                else
+                    ChangeUI(UIScreen.Battle);
             });
     }
     public void RetryGame(Button bt)
@@ -300,5 +303,6 @@ public class UIManager : BaseSingleton<UIManager>
         Debug.LogWarning($"UI of type {typeof(T).Name} not found.");
         return null;
     }
+
 
 }
