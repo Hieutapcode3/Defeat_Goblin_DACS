@@ -15,6 +15,8 @@ public class ResourceManager : MonoBehaviour
     public static Sprite _ItemDefault { get; private set; }
     public static Sprite _ItemDepleted { get; private set; }
     public static GameObject _GoldTextPrefab { get; private set; }
+    public static GameObject _GoldIncrease { get; private set; }
+    public static GameObject _Coin { get; private set; }
 
     private void Awake()
     {
@@ -29,5 +31,7 @@ public class ResourceManager : MonoBehaviour
         _ItemDefault = ResourceData.GetValueByKey<Sprite>(ResourceKey.ItemDefault);
         _ItemDepleted = ResourceData.GetValueByKey<Sprite>(ResourceKey.ItemDepleted);
         _GoldTextPrefab = ResourceData.GetValueByKey<GameObject>(ResourceKey.GoldTextPrefab);
+        _GoldIncrease = ResourceData.GetValueByKey<GameObject>(ResourceKey.GoldIncrease);
+        _Coin = ResourceData.GetValueByKey<GameObject>(ResourceKey.Coin);
     }
 }

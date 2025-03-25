@@ -11,6 +11,7 @@ public class HomeUI : BaseUI
     public Button btnBuyChar;
     public Button btnBuyPet;
     public Button btnFight;
+    public Image deleteChar;
     public ParticleImage GoldDecreaseParticle;
     public Image notEnoughGoldsText;
     public Image goldGroup;

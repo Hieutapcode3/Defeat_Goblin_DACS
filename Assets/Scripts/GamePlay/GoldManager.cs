@@ -111,7 +111,7 @@ public class GoldManager : BaseSingleton<GoldManager>
         TextMeshProUGUI popupText = goldPopup.GetComponentInChildren<TextMeshProUGUI>();
         if (popupText != null)
         {
-            popupText.text = $"-{amount}";
+            popupText.text = $"-{GameDataManager.Instance.FormatPrice(amount)}";
         }
 
         goldPopup.transform.DOMove(worldPosition - offset, 1f)

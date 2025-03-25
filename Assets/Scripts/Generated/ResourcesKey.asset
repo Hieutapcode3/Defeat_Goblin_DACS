@@ -24,3 +24,5 @@ MonoBehaviour:
   - ItemDefault
   - ItemDepleted
   - GoldTextPrefab
+  - GoldIncrease
+  - Coin

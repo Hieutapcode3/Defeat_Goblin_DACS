@@ -12,4 +12,6 @@ public enum ResourceKey
     ItemDefault,
     ItemDepleted,
     GoldTextPrefab,
+    GoldIncrease,
+    Coin,
 }

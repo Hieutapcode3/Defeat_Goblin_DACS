@@ -9,6 +9,7 @@ public class EntityMerger : BaseSingleton<EntityMerger>
 {
     [SerializeField] private LayerMask entityLayer;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private RectTransform deleteChar;
     private BaseEntity selectedEntity;
     private GameObject cloneCharacter;
     private GameData gameData;
@@ -60,6 +61,7 @@ public class EntityMerger : BaseSingleton<EntityMerger>
     {
         if (selectedEntity == null) return;
         cloneCharacter = Instantiate(selectedEntity.gameObject, selectedEntity.transform.position, Quaternion.identity);
+        cloneCharacter.GetComponent<BaseEntity>().slot = null;
         SpriteRenderer[] renderers = cloneCharacter.GetComponentsInChildren<SpriteRenderer>();
         cloneCharacter.GetComponent<SortingGroup>().sortingOrder += 66;
         foreach (var sr in renderers)
@@ -94,8 +96,28 @@ public class EntityMerger : BaseSingleton<EntityMerger>
             currentSlot = null;
         }
     }
+
     public void TryMergeOrCancel()
     {
+        Vector2 dropPosition = Input.mousePosition; 
+        if (RectTransformUtility.RectangleContainsScreenPoint(deleteChar, dropPosition, Camera.main))
+        {
+            SlotData selectedSlot = selectedEntity.slot.slotData;
+            gameData.slotDatas.Remove(gameData.GetSlotDataByIndex(selectedSlot.index));
+            SlotManager.Instance.UpdateSlot(selectedSlot.index);
+            SaveSystem.SaveGame(gameData);
+            Destroy(selectedEntity.gameObject);
+            Destroy(cloneCharacter);
+            selectedEntity = null;
+            if (currentSlot != null)
+            {
+                currentSlot.UnSelectedSlot();
+                currentSlot = null;
+            }
+            GoldManager.Instance.UpdateGoldPerSecondTxt();
+            return;
+        }
+
         if (currentSlot == null)
         {
             CancelMerge();
@@ -119,28 +141,16 @@ public class EntityMerger : BaseSingleton<EntityMerger>
         {
             BaseEntity targetEntity = currentSlot.currentEntity;
             if (targetEntity.entityData.type != selectedEntity.entityData.type ||
-            targetEntity.entityData.level != selectedEntity.entityData.level ||
-            (targetEntity.entityData.type == EntityType.Pet && targetEntity.entityData.level == EntityLevel.Level_6) ||
-            (selectedEntity.entityData.type == EntityType.Pet && selectedEntity.entityData.level == EntityLevel.Level_6) ||
-            (selectedEntity.entityData.type == EntityType.Character && selectedEntity.entityData.level == EntityLevel.Level_10 ) ||
-            (targetEntity.entityData.type == EntityType.Character && targetEntity.entityData.level == EntityLevel.Level_10))
+                targetEntity.entityData.level != selectedEntity.entityData.level ||
+                (targetEntity.entityData.type == EntityType.Pet && targetEntity.entityData.level == EntityLevel.Level_6) ||
+                (selectedEntity.entityData.type == EntityType.Pet && selectedEntity.entityData.level == EntityLevel.Level_6) ||
+                (selectedEntity.entityData.type == EntityType.Character && selectedEntity.entityData.level == EntityLevel.Level_10) ||
+                (targetEntity.entityData.type == EntityType.Character && targetEntity.entityData.level == EntityLevel.Level_10))
             {
-                Debug.Log("Before swap:");
-                Debug.Log($"current: {currentSlotData.entityData.type} {currentSlotData.entityData.level} (ID: {currentSlotData.entityData.GetInstanceID()})");
-                Debug.Log($"selected: {selectedSlotData.entityData.type} {selectedSlotData.entityData.level} (ID: {selectedSlotData.entityData.GetInstanceID()})");
-
                 (currentSlotData.entityData, selectedSlotData.entityData) = (selectedSlotData.entityData, currentSlotData.entityData);
-
-                Debug.Log("After swap:");
-                Debug.Log($"current: {currentSlotData.entityData.type} {currentSlotData.entityData.level} (ID: {currentSlotData.entityData.GetInstanceID()})");
-                Debug.Log($"selected: {selectedSlotData.entityData.type} {selectedSlotData.entityData.level} (ID: {selectedSlotData.entityData.GetInstanceID()})");
-
                 SlotManager.Instance.UpdateSlot(currentSlotData.index);
                 SlotManager.Instance.UpdateSlot(selectedSlotData.index);
                 SaveSystem.SaveGame(gameData);
-                Debug.Log("After save:");
-                Debug.Log($"current: {currentSlotData.entityData.type} {currentSlotData.entityData.level} (ID: {currentSlotData.entityData.GetInstanceID()})");
-                Debug.Log($"selected: {selectedSlotData.entityData.type} {selectedSlotData.entityData.level} (ID: {selectedSlotData.entityData.GetInstanceID()})");
                 CancelMerge();
                 return;
             }
@@ -160,7 +170,6 @@ public class EntityMerger : BaseSingleton<EntityMerger>
 
     private void ProcessMerge<T>(T entity1, T entity2, System.Func<EntityLevel, EntityData> getEntityData) where T : BaseEntity
     {
-        Debug.Log(entity1.entityData.level + " " + entity2.entityData.level);
         SetAlpha(selectedEntity.gameObject, false);
         cloneCharacter.SetActive(false);
         int nextLevel = (int)entity1.entityData.level + 1;
@@ -168,7 +177,6 @@ public class EntityMerger : BaseSingleton<EntityMerger>
         bool hasUnlockedLevel = entity1.entityData.type == EntityType.Character
             ? gameData.HasUnlockedCharacterLevel((EntityLevel)nextLevel)
             : gameData.HasUnlockedPetLevel((EntityLevel)nextLevel);
-
 
         if (!hasUnlockedLevel)
         {
@@ -197,6 +205,7 @@ public class EntityMerger : BaseSingleton<EntityMerger>
 
         SaveSystem.SaveGame(gameData);
         CancelMerge();
+        GoldManager.Instance.UpdateGoldPerSecondTxt();
     }
 
     private void CancelMerge()
@@ -209,6 +218,7 @@ public class EntityMerger : BaseSingleton<EntityMerger>
             currentSlot = null;
         }
         selectedEntity = null;
+        GoldManager.Instance.UpdateGoldPerSecondTxt();
     }
 
     private void SetAlpha(GameObject obj, bool toZero)
