@@ -1251,9 +1251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5740e78ab87bc423f89c99c4cb35de25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: 0
+  attackRange: 1.5
   entityData: {fileID: 0}
   slot: {fileID: 0}
   IsFacingRight: 1
+  splashAnim: {fileID: 0}
 --- !u!95 &485398768744276579
 Animator:
   serializedVersion: 5
@@ -1299,10 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d5b9114780e4247b6e71ef6e67d5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthBar: {fileID: 0}
-  healthBarContainer: {fileID: 0}
-  damageTextPrefab: {fileID: 0}
+  maxHealth: 150
 --- !u!4 &490083029045678855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 311580695235782034, guid: d5ed9f4cbfd2a4f64b7619804641ff39, type: 3}

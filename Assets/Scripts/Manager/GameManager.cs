@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,14 +19,19 @@ public class GameManager : BaseSingleton<GameManager>
     public Transform centerTransform;
     public GameData gameData { get; private set; }
     private Button btnFight;
+    private List<TextMeshProUGUI> missionLv; 
     private Image blackScreen;
+    private Image notHaveCharacter;
     private float defaultOrthoSize;
     private EntityMerger entityMerger;
+    private bool isShowingNotHaveCharacter = false;
     void Start()
     {
         this.entityMerger = GetComponentInParent<EntityMerger>();
         this.blackScreen = UIManager.Instance.blackScreen;
         this.btnFight = UIManager.Instance.GetUI<HomeUI>().btnFight;
+        this.missionLv = UIManager.Instance.GetUI<HomeUI>().missionLevel;
+        this.notHaveCharacter = UIManager.Instance.GetUI<HomeUI>().notHaveCharText;
         Vector3 camPos = this.transform.position;
         camPos.z = -10;
         cinemachineVirtual.transform.position = camPos;
@@ -44,6 +51,7 @@ public class GameManager : BaseSingleton<GameManager>
         SlotManager.Instance.LoadSlot(this.gameData);
         EntityManager.Instance.LoadOwnedCharacter(this.gameData);
         EntityMerger.Instance.LoadCharacterMerge(this.gameData);
+        UpdateMissionLv();
     }
     protected override void Awake()
     {
@@ -52,6 +60,11 @@ public class GameManager : BaseSingleton<GameManager>
     private void Battle()
     {
         if (UIManager.Instance.IsValidState()) return;
+        if (!EntityManager.Instance.CheckIsHasChar())
+        {
+            ShowNotHaveCharText();
+            return;
+        }
         AnimationManager.Instance.OnButtonClick(
             btnFight,
             () =>
@@ -68,7 +81,7 @@ public class GameManager : BaseSingleton<GameManager>
                         {
                             cinemachineVirtual.LookAt = LevelController.Instance.cameraFollow;
                             cinemachineVirtual.Follow = LevelController.Instance.cameraFollow;
-
+                            UIManager.Instance.GetUI<HomeUI>().deleteChar.gameObject.SetActive(false);
                             cinemachineVirtual.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = LevelController.Instance.mapLimit;
 
                             UIManager.Instance.ChangeUI(UIScreen.Battle);
@@ -124,6 +137,7 @@ public class GameManager : BaseSingleton<GameManager>
     {
         Time.timeScale = 1;
         if (UIManager.Instance.IsValidState()) return;
+        UpdateMissionLv();
         AnimationManager.Instance.OnButtonClick(
             bt,
             () =>
@@ -138,6 +152,10 @@ public class GameManager : BaseSingleton<GameManager>
                     () =>
                     {
                         isInBattle = false;
+                        //RectTransform deleteChar =  UIManager.Instance.GetUI<HomeUI>().deleteChar.GetComponent<RectTransform>();
+                        //deleteChar.DOAnchorPos(new Vector2(-150, -100), 0);
+                        //UIManager.Instance.GetUI<HomeUI>().deleteChar.gameObject.SetActive(true);
+                        //deleteChar.DOAnchorPos(new Vector2(-150, 400), 0.25f).SetEase(Ease.OutBack);
                         ClearMap();
                         EntitySpawner.Instance.ClearEntities();
                         cinemachineVirtual.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10);
@@ -219,5 +237,35 @@ public class GameManager : BaseSingleton<GameManager>
     private void ResetPlayerfabs()
     {
         PlayerPrefs.DeleteAll();
+    }
+    public void UpdateMissionLv()
+    {
+        GameData currentData = SaveSystem.LoadGame();
+        int currentLv = currentData.currentLevel;
+        foreach(var txt in missionLv)
+            txt.text = "mission " + currentLv;
+    }
+    private void ShowNotHaveCharText()
+    {
+        if (isShowingNotHaveCharacter) return;
+
+        isShowingNotHaveCharacter = true;
+        notHaveCharacter.gameObject.SetActive(true);
+        RectTransform rectTransform = notHaveCharacter.rectTransform;
+        TextMeshProUGUI textComponent = notHaveCharacter.GetComponentInChildren<TextMeshProUGUI>();
+
+        rectTransform.anchoredPosition = Vector3.zero;
+        rectTransform.localScale = Vector3.zero;
+        textComponent.alpha = 0;
+
+        rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        textComponent.DOFade(1, 0.5f);
+
+        rectTransform.DOAnchorPosY(100f, 1f).SetEase(Ease.OutQuad).SetDelay(0.5f);
+        textComponent.DOFade(0, 1f).SetEase(Ease.InQuad).SetDelay(0.5f).OnComplete(() =>
+        {
+            notHaveCharacter.gameObject.SetActive(false);
+            isShowingNotHaveCharacter = false;
+        });
     }
 }

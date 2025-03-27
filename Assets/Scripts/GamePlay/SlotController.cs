@@ -89,5 +89,6 @@ public class SlotController : MonoBehaviour
         Level_Trans?.gameObject.SetActive(true);
         GetComponentInChildren<TextMeshProUGUI>().text = ((int)slotData.entityData.level + 1).ToString();
         Flag_Trans.gameObject.SetActive(false);
+        GoldManager.Instance.UpdateGoldPerSecondTxt();
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AssetKits.ParticleImage;
 using TMPro;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ public class HomeUI : BaseUI
 {
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI goldEarnInSecond;
+    public List<TextMeshProUGUI> missionLevel;
     public Button btnBuySlot;
     public Button btnBuyChar;
     public Button btnBuyPet;
@@ -14,6 +16,7 @@ public class HomeUI : BaseUI
     public Image deleteChar;
     public ParticleImage GoldDecreaseParticle;
     public Image notEnoughGoldsText;
+    public Image notHaveCharText;
     public Image goldGroup;
     public override void Init(UIManager uIManager)
     {

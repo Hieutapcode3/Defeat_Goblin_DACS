@@ -103,6 +103,8 @@ public class EntityMerger : BaseSingleton<EntityMerger>
         if (RectTransformUtility.RectangleContainsScreenPoint(deleteChar, dropPosition, Camera.main))
         {
             SlotData selectedSlot = selectedEntity.slot.slotData;
+            int amount = selectedEntity.entityData.goldPerSecond * 5;
+            GoldManager.Instance.AddGold(amount);
             gameData.slotDatas.Remove(gameData.GetSlotDataByIndex(selectedSlot.index));
             SlotManager.Instance.UpdateSlot(selectedSlot.index);
             SaveSystem.SaveGame(gameData);
@@ -205,7 +207,6 @@ public class EntityMerger : BaseSingleton<EntityMerger>
 
         SaveSystem.SaveGame(gameData);
         CancelMerge();
-        GoldManager.Instance.UpdateGoldPerSecondTxt();
     }
 
     private void CancelMerge()

@@ -124,8 +124,14 @@ public class EntityManager : BaseSingleton<EntityManager>
 
     public void UpdateCurrentPurchasablePet()
     {
-        EntityData characterData = GetCharacterDataByLevel(gameData.currentPurchasableCharacter);
-        btnBuyChar.GetComponentInChildren<RawImage>().texture = characterData.renderTexture;
+        EntityData characterData = GetPetDataByLevel(gameData.currentPurchasablePet);
+        btnBuyPet.GetComponentInChildren<RawImage>().texture = characterData.renderTexture;
         btnBuyPet.GetComponentInChildren<TextMeshProUGUI>().text = GameDataManager.Instance.FormatPrice(gameData.GetPetPrice());
+    }
+    public bool CheckIsHasChar()
+    {
+        if (gameData.slotDatas.Count > 0)
+            return true;
+        return false;
     }
 }

@@ -147,10 +147,9 @@ public class SlotManager : BaseSingleton<SlotManager>
         int count = 0;
         foreach(SlotController slot in slots)
         {
-            if (slot.IsBuy)
+            if (slot.IsBuy && slot.currentEntity != null && slot.slotData.entityData != null)
             {
-                if(slot.currentEntity != null)
-                    count += slot.currentEntity.entityData.goldPerSecond;
+                count += slot.currentEntity.entityData.goldPerSecond;
             }
         }
         return count;

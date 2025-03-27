@@ -255,6 +255,7 @@ MonoBehaviour:
   entityData: {fileID: 0}
   slot: {fileID: 0}
   IsFacingRight: 1
+  splashAnim: {fileID: 0}
 --- !u!70 &8463756507239602515
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -314,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d5b9114780e4247b6e71ef6e67d5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
 --- !u!1 &4417899677197094573
 GameObject:
   m_ObjectHideFlags: 0

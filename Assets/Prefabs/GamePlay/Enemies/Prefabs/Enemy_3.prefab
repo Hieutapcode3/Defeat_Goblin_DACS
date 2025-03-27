@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7216546157489267203}
   - component: {fileID: 6468863434561636201}
   - component: {fileID: -8943740828780053763}
+  - component: {fileID: -1830633949100107526}
+  - component: {fileID: -4736701148099590103}
   m_Layer: 0
   m_Name: Enemy_3
   m_TagString: Untagged
@@ -70,9 +72,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd247fdebe224b9a84162ca2964bce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: 0
+  attackRange: 1.5
   entityData: {fileID: 0}
   slot: {fileID: 0}
   IsFacingRight: 0
+  splashAnim: {fileID: 0}
 --- !u!210 &6468863434561636201
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -97,10 +102,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d5b9114780e4247b6e71ef6e67d5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthBar: {fileID: 8654333926066540964}
-  healthBarContainer: {fileID: 1422027836431164293}
-  damageTextPrefab: {fileID: 5617900443939047604, guid: f3b5fec6d85bb4f3bb78c85a12e32ea9, type: 3}
+  maxHealth: 220
+--- !u!50 &-1830633949100107526
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640539436768052189}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &-4736701148099590103
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640539436768052189}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.18, y: 0.91}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &1422027836431164293
 GameObject:
   m_ObjectHideFlags: 0

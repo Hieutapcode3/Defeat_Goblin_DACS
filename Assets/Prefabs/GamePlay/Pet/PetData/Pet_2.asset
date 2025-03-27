@@ -16,5 +16,5 @@ MonoBehaviour:
   prefab: {fileID: 8129956581784905806, guid: db4bec21f62cf48639536afdebeee2c4, type: 3}
   renderTexture: {fileID: 8400000, guid: 9dc41d9906a404dd5901c54009d77fdd, type: 2}
   type: 1
-  damage: 0
+  damage: 20
   goldPerSecond: 10

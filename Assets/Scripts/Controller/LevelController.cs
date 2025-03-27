@@ -34,7 +34,6 @@ public class LevelController : BaseSingleton<LevelController>
         yield return null;
 
         yield return StartCoroutine(isometricMapGenerator.GenerateMapCoroutine());
-
         AstarPath.active.data.gridGraph.center = new Vector3(centerTransform.position.x, centerTransform.position.y - 0.25f, 0);
         AstarPath.active.Scan();
 

@@ -28,7 +28,13 @@ public abstract class BaseEntity : MonoBehaviour
             animator.Play(state.fullPathHash, 0, Random.Range(0, 1f));
             animator.speed = Random.Range(0.6f, 1f);
         }
-        if(entityData != null && entityData.type != EntityType.Enemy && slot != null)
+        if (entityData != null && entityData.type != EntityType.Enemy && slot != null)
+            goldIncreaseCoroutine = StartCoroutine(GoldIncreaseRoutine());
+
+    }
+    private void OnEnable()
+    {
+        if (entityData != null && entityData.type != EntityType.Enemy && slot != null)
             goldIncreaseCoroutine = StartCoroutine(GoldIncreaseRoutine());
     }
 
@@ -144,9 +150,9 @@ public abstract class BaseEntity : MonoBehaviour
         int amount = entityData.goldPerSecond * 5;
         textMeshPro.text = "+" + (GameDataManager.Instance.FormatPrice(amount)).ToString();
         goldIncrease.transform.localScale = Vector3.zero;
+        GoldManager.Instance.AddGold(amount);
         goldIncrease.transform.DOScale(1, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
         {
-            GoldManager.Instance.AddGold(amount);
             goldIncrease.transform.DOScale(0, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
             {
                 goldIncrease.SetActive(false);

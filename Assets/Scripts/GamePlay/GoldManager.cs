@@ -135,7 +135,7 @@ public class GoldManager : BaseSingleton<GoldManager>
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            AddGold(5000);
+            AddGold(50000000);
         }
         if (Input.GetKeyDown(KeyCode.T))
         {

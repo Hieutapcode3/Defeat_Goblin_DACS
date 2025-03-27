@@ -1127,9 +1127,6 @@ PrefabInstance:
       addedObject: {fileID: 8214420643849500455}
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 56fa43902c0ae43febad9b61fef2fbb3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7108389691046418069}
-    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 56fa43902c0ae43febad9b61fef2fbb3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4672480511465763591}
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 56fa43902c0ae43febad9b61fef2fbb3, type: 3}
       insertIndex: -1
@@ -1137,6 +1134,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 56fa43902c0ae43febad9b61fef2fbb3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8372069923250223788}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 56fa43902c0ae43febad9b61fef2fbb3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7510275772711655870}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 56fa43902c0ae43febad9b61fef2fbb3, type: 3}
 --- !u!4 &344162699463881289 stripped
 Transform:
@@ -1220,21 +1220,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06, y: 1.02}
   m_Size: {x: 0.75, y: 2.03}
   m_Direction: 0
---- !u!114 &7108389691046418069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4727142558420238492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5740e78ab87bc423f89c99c4cb35de25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityData: {fileID: 0}
-  slot: {fileID: 0}
-  IsFacingRight: 1
 --- !u!95 &4672480511465763591
 Animator:
   serializedVersion: 5
@@ -1280,7 +1265,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d5b9114780e4247b6e71ef6e67d5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 330
+--- !u!114 &7510275772711655870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4727142558420238492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbb61bb9f4694d1999a46d5d394cc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: 1
+  attackRange: 1.5
+  entityData: {fileID: 0}
+  slot: {fileID: 0}
+  IsFacingRight: 0
+  splashAnim: {fileID: 0}
+  shootPoint: {fileID: 0}
+  shootRange: 10
 --- !u!4 &4769052789575664819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 311580695235782034, guid: 56fa43902c0ae43febad9b61fef2fbb3, type: 3}

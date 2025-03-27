@@ -29,7 +29,6 @@ public class AnimationManager : BaseSingleton<AnimationManager>
             .ToArray();
 
         int pendingAnimations = 0;
-
         void CheckComplete()
         {
             pendingAnimations--;
@@ -39,6 +38,13 @@ public class AnimationManager : BaseSingleton<AnimationManager>
                 SetAnimationState(UIAnimationState.ShowMainUI, false);
             }
         }
+        RectTransform deleteChar = UIManager.Instance.GetUI<HomeUI>().deleteChar.GetComponent<RectTransform>();
+        if (ui == UIManager.Instance.GetUI<HomeUI>())
+        {
+            deleteChar.DOAnchorPos(new Vector2(-150, -100), 0);
+            GameManager.Instance.UpdateMissionLv();
+        }
+
         foreach (var element in elements)
         {
             if (element.name == "BG")
@@ -53,7 +59,6 @@ public class AnimationManager : BaseSingleton<AnimationManager>
                     });
                 continue;
             }
-
             if (element.name == "Title" && element.GetComponent<ElementAnimator>() == null)
             {
                 Tween rotate = element.DORotate(new Vector3(3, 3, 3), 1, RotateMode.FastBeyond360)
@@ -70,7 +75,6 @@ public class AnimationManager : BaseSingleton<AnimationManager>
                         rotate, scale
                 });
             }
-
             Vector3 currentPos = element.position;
             Vector3 startPos;
 
@@ -86,6 +90,11 @@ public class AnimationManager : BaseSingleton<AnimationManager>
                 .SetEase(ShowMainUI_Ease)
                 .SetUpdate(true)
                 .OnComplete(CheckComplete);
+        }
+        if (ui == UIManager.Instance.GetUI<HomeUI>())
+        {
+            UIManager.Instance.GetUI<HomeUI>().deleteChar.gameObject.SetActive(true);
+            deleteChar.DOAnchorPos(new Vector2(-150, 400), 0.25f).SetEase(Ease.OutBack);
         }
     }
 

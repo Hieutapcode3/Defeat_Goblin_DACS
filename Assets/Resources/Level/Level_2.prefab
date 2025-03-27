@@ -687,7 +687,7 @@ PrefabInstance:
     - target: {fileID: 7574106566419159855, guid: 2e7649606d3ca4b90b4b2466bc94cd9f, type: 3}
       propertyPath: slotData.entityData
       value: 
-      objectReference: {fileID: 11400000, guid: 224c7166f31934684b28aaeee41eaab3, type: 2}
+      objectReference: {fileID: 11400000, guid: d8a245cc49f504326bcb073324550885, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -913,7 +913,7 @@ PrefabInstance:
     - target: {fileID: 7574106566419159855, guid: 2e7649606d3ca4b90b4b2466bc94cd9f, type: 3}
       propertyPath: slotData.entityData
       value: 
-      objectReference: {fileID: 11400000, guid: 224c7166f31934684b28aaeee41eaab3, type: 2}
+      objectReference: {fileID: 11400000, guid: d8a245cc49f504326bcb073324550885, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

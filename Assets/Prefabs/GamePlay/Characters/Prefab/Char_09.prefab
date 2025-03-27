@@ -1426,9 +1426,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5740e78ab87bc423f89c99c4cb35de25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: 0
+  attackRange: 1.5
   entityData: {fileID: 0}
   slot: {fileID: 0}
   IsFacingRight: 1
+  splashAnim: {fileID: 0}
 --- !u!95 &3742015186513381417
 Animator:
   serializedVersion: 5
@@ -1474,7 +1477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d5b9114780e4247b6e71ef6e67d5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 360
 --- !u!4 &492171856345930649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8839290923878878979, guid: 9cf728624426444de9e5664cc38a45e0, type: 3}
