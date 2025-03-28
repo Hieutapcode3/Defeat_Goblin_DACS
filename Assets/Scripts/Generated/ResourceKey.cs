@@ -14,4 +14,8 @@ public enum ResourceKey
     GoldTextPrefab,
     GoldIncrease,
     Coin,
+    Magican,
+    CannonBall,
+    Bom_Dissolve,
+    EnemyArrow,
 }

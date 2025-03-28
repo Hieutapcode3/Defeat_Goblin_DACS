@@ -92,7 +92,7 @@ public class UIManager : BaseSingleton<UIManager>
     public void RetryGame(Button bt)
     {
         Time.timeScale = 1f;
-        if (IsValidState()) return;
+        if (IsValidState() || GameManager.Instance.isLose || GameManager.Instance.isWin) return;
         AnimationManager.Instance.OnButtonClick(
             bt,
             () =>

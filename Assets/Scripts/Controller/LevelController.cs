@@ -56,7 +56,7 @@ public class LevelController : BaseSingleton<LevelController>
     public void RemoveEnemy(SlotController slotController) {
         slotControllers.Remove(slotController);
         if (slotControllers.Count() == 0) {
-            GameManager.Instance.WinGame(0.5f);
+            GameManager.Instance.WinGame(0.3f);
             LevelManager.Instance.CompletedLevel();
         }
     }

@@ -3,28 +3,18 @@ using UnityEngine;
 public class ShooterCharacter : BaseEntity
 {
     public Transform shootPoint;
-    public float shootRange = 10f;
-
-    public override void Attack(BaseEntity target)
+    [SerializeField] private ParticleSystem explosion;
+    public override void OnAttackHit(AnimationType animationType)
     {
-        if (target && !IsAttacking)
-        {
-            base.Attack(target);
-            // Shoot(target);
-        }
+        SpawnBullet(target,entityData.damage);
     }
-
-    // private void Shoot(BaseEntity target)
-    // {
-    //     RaycastHit2D hit = Physics2D.Raycast(shootPoint.position, (target.transform.position - shootPoint.position).normalized, shootRange, enemyLayer);
-
-    //     if (hit.collider != null)
-    //     {
-    //         BaseEntity enemy = hit.collider.GetComponent<BaseEntity>();
-    //         if (enemy)
-    //         {
-    //             enemy.TakeDamage(entityData.damage);
-    //         }
-    //     }
-    // }
+    protected void SpawnBullet(BaseEntity target, int damage)
+    {
+        if(explosion != null)
+            explosion.Play();
+        if (!shootPoint) return;
+        GameObject cannonBall = PoolManager.Instance.Get(ResourceManager._CannonBall, shootPoint.position);
+        cannonBall.GetComponent<Arrow>().enabled = false;
+        cannonBall.GetComponent<BulletMove>().SetTarget(target, damage);
+    }
 }

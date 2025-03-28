@@ -177,6 +177,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &6763628564077152922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7173178225240289081}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7173178225240289081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6763628564077152922}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.738, y: -0.044, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 570967958486760958}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7235972183780955860
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,12 +356,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd247fdebe224b9a84162ca2964bce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackType: 0
+  attackType: 1
   attackRange: 1.5
   entityData: {fileID: 0}
   slot: {fileID: 0}
   IsFacingRight: 0
   splashAnim: {fileID: 0}
+  firePoint: {fileID: 7173178225240289081}
 --- !u!210 &-4122988665967177900
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -484,9 +516,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2319998805419544334, guid: 3a4064a809ac7493daee665156afcfbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7173178225240289081}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 3a4064a809ac7493daee665156afcfbe, type: 3}
+--- !u!4 &570967958486760958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2319998805419544334, guid: 3a4064a809ac7493daee665156afcfbe, type: 3}
+  m_PrefabInstance: {fileID: 2872793855196361456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3526847104854166318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 3a4064a809ac7493daee665156afcfbe, type: 3}

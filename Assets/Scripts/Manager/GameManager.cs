@@ -151,6 +151,7 @@ public class GameManager : BaseSingleton<GameManager>
                 ShowBlackScreen(false,
                     () =>
                     {
+                        LoadGame();
                         isInBattle = false;
                         //RectTransform deleteChar =  UIManager.Instance.GetUI<HomeUI>().deleteChar.GetComponent<RectTransform>();
                         //deleteChar.DOAnchorPos(new Vector2(-150, -100), 0);

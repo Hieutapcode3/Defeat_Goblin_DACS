@@ -52,6 +52,10 @@ public class Arrow : MonoBehaviour
             target.TakeDamage(damage);
             
         }
+        if (this.gameObject.CompareTag("CannonBall"))
+        {
+            PoolManager.Instance.Get(ResourceManager._Bom_Dissolve,this.transform.position);
+        }
         gameObject.SetActive(false);
 
     }

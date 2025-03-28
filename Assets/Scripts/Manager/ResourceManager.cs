@@ -17,6 +17,10 @@ public class ResourceManager : MonoBehaviour
     public static GameObject _GoldTextPrefab { get; private set; }
     public static GameObject _GoldIncrease { get; private set; }
     public static GameObject _Coin { get; private set; }
+    public static GameObject _Magican { get; private set; }
+    public static GameObject _CannonBall { get; private set; }
+    public static GameObject _Bom_Dissolve { get; private set; }
+    public static GameObject _EnemyArrow { get; private set; }
 
     private void Awake()
     {
@@ -33,5 +37,9 @@ public class ResourceManager : MonoBehaviour
         _GoldTextPrefab = ResourceData.GetValueByKey<GameObject>(ResourceKey.GoldTextPrefab);
         _GoldIncrease = ResourceData.GetValueByKey<GameObject>(ResourceKey.GoldIncrease);
         _Coin = ResourceData.GetValueByKey<GameObject>(ResourceKey.Coin);
+        _Magican = ResourceData.GetValueByKey<GameObject>(ResourceKey.Magican);
+        _CannonBall = ResourceData.GetValueByKey<GameObject>(ResourceKey.CannonBall);
+        _Bom_Dissolve = ResourceData.GetValueByKey<GameObject>(ResourceKey.Bom_Dissolve);
+        _EnemyArrow = ResourceData.GetValueByKey<GameObject>(ResourceKey.EnemyArrow);
     }
 }

@@ -133,7 +133,7 @@ public class IsometricMapGenerator : BaseSingleton<IsometricMapGenerator>
                 newItem.transform.parent = this.centerTransform;
 
                 if ((x * mapHeight + y) % 10 == 0)
-                    yield return null;
+                    yield return new WaitForSeconds(.01f);
             }
         }
     }

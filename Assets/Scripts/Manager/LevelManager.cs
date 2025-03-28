@@ -31,7 +31,7 @@ public class LevelManager : BaseSingleton<LevelManager>
                 Debug.LogWarning($"'{mapName}' not found at path: {path}");
             }
         }
-        Debug.Log("MapDic Count:" + _mapDic.Count);
+        //Debug.Log("MapDic Count:" + _mapDic.Count);
     }
     private GameObject GetMap(GameLevel mapName)
     {
