@@ -26,6 +26,13 @@ public class AudioManager : BaseSingleton<AudioManager>
         bgrSource.volume = 1f;
         bgrSource.Play();
     }
+    public void ChangeBgSound(SoundEffect bg)
+    {
+        bgrSource.clip = GetSound(bg);
+        bgrSource.loop = true;
+        bgrSource.volume = 1f;
+        bgrSource.Play();
+    }
     private void LoadAllSounds()
     {
         _soundDic = new Dictionary<SoundEffect, AudioClip>();

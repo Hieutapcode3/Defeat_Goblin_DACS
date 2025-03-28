@@ -5141,7 +5141,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_SortAtRoot: 0
 --- !u!114 &-2380481372789062078
 MonoBehaviour:
@@ -5217,7 +5217,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.18, y: 0.91}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 3.6
 --- !u!1 &8626518941248262618
 GameObject:
   m_ObjectHideFlags: 0
@@ -5278,7 +5278,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &5161536082379540656
 MonoBehaviour:

@@ -12,7 +12,7 @@ public class ArcherCharacter : BaseEntity
         {
             GameObject arrow = PoolManager.Instance.Get(ResourceManager._ArrowPrefab, shootPoint.position);
             Arrow arrowScript = arrow.GetComponent<Arrow>();
-
+            AudioManager.Instance.PlaySoundEffect(SoundEffect.Arrow);
             if (arrowScript)
             {
                 arrowScript.SetTarget(target, entityData.damage);

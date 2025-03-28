@@ -79,6 +79,7 @@ public class GameManager : BaseSingleton<GameManager>
                         LevelManager.Instance.LoadMap(gameData.currentLevel);
                         StartCoroutine(LevelController.Instance.GenerateMapCoroutine(onComplete: () =>
                         {
+                            AudioManager.Instance.ChangeBgSound(SoundEffect.BG_2);
                             cinemachineVirtual.LookAt = LevelController.Instance.cameraFollow;
                             cinemachineVirtual.Follow = LevelController.Instance.cameraFollow;
                             UIManager.Instance.GetUI<HomeUI>().deleteChar.gameObject.SetActive(false);
@@ -151,8 +152,10 @@ public class GameManager : BaseSingleton<GameManager>
                 ShowBlackScreen(false,
                     () =>
                     {
-                        LoadGame();
+                        GameData lv = SaveSystem.LoadGame();
+                        gameData.currentLevel = lv.currentLevel;
                         isInBattle = false;
+                        AudioManager.Instance.ChangeBgSound(SoundEffect.BG);
                         //RectTransform deleteChar =  UIManager.Instance.GetUI<HomeUI>().deleteChar.GetComponent<RectTransform>();
                         //deleteChar.DOAnchorPos(new Vector2(-150, -100), 0);
                         //UIManager.Instance.GetUI<HomeUI>().deleteChar.gameObject.SetActive(true);

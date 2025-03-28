@@ -20,7 +20,11 @@ public enum SoundEffect
     Click,
     Win,
     Lose,
-    Cancel,
+    Buy,
+    Arrow,
+    BG_2,
+    UnlockNewChar,
+    Merge
 }
 public enum UIAnimationState
 {

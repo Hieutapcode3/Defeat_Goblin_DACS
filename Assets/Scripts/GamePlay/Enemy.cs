@@ -76,6 +76,7 @@ public class Enemy : BaseEntity
         if (explosion != null)
             explosion.Play();
         if (!firePoint) return;
+        AudioManager.Instance.PlaySoundEffect(SoundEffect.Arrow);
         GameObject arrow = PoolManager.Instance.Get(ResourceManager._EnemyArrow, firePoint.position);
         arrow.GetComponent<Arrow>().SetTarget(target, damage);
     }

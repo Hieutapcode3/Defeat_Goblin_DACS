@@ -49,6 +49,7 @@ public class SlotManager : BaseSingleton<SlotManager>
                     () =>
                     {
                         AddSlot(homeUI.btnBuySlot);
+                        AudioManager.Instance.PlaySoundEffect(SoundEffect.Buy);
                         if (gameData.currentSlots == gameData.maxSlots)
                         {
                             homeUI.btnBuySlot.interactable = false;
@@ -70,7 +71,6 @@ public class SlotManager : BaseSingleton<SlotManager>
         slot.Init(index <= gameData.currentSlots, index, gameData.GetSlotDataByIndex(index)?.entityData);
         // Transform activeSlot = slot.Slot_Active;
         // Transform flag = slot.Flag;
-
         if (index <= gameData.currentSlots)
         {
             if (slot.currentEntity != null)
@@ -79,7 +79,6 @@ public class SlotManager : BaseSingleton<SlotManager>
             }
             if (slot.slotData.entityData != null)
             {
-
                 slot.SpawnNewEntity();
             }
             else

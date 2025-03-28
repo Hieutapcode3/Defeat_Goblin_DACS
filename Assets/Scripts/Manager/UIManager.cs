@@ -236,10 +236,10 @@ public class UIManager : BaseSingleton<UIManager>
                     Debug.LogWarning($"No BaseUI component found on {child.name}. Skipping.");
                 }
             }
-            else
-            {
-                Debug.LogWarning($"Child name {child.name} does not match any UIName enum value. Skipping.");
-            }
+            //else
+            //{
+            //    Debug.LogWarning($"Child name {child.name} does not match any UIName enum value. Skipping.");
+            //}
         }
     }
 

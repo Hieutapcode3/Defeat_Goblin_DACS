@@ -49,6 +49,7 @@ public class EntityMerger : BaseSingleton<EntityMerger>
             BaseEntity entity = hit.GetComponent<BaseEntity>();
             if (entity != null)
             {
+                AudioManager.Instance.PlaySoundEffect(SoundEffect.Click);
                 selectedEntity = entity;
                 CreateCloneCharacter();
                 SetAlpha(selectedEntity.gameObject, true);
@@ -182,6 +183,7 @@ public class EntityMerger : BaseSingleton<EntityMerger>
 
         if (!hasUnlockedLevel)
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffect.UnlockNewChar);
             if (entity1.entityData.type == EntityType.Character)
             {
                 gameData.UnlockCharacterLevel((EntityLevel)nextLevel);
@@ -195,6 +197,10 @@ public class EntityMerger : BaseSingleton<EntityMerger>
                 EntityManager.Instance.UpdateCurrentPurchasablePet();
             }
             UIManager.Instance.ShowUnlockNewLevelUI(entity1.entityData.renderTexture, newData.renderTexture);
+        }
+        else
+        {
+            AudioManager.Instance.PlaySoundEffect(SoundEffect.Merge);
         }
 
         SlotData slotData1 = gameData.GetSlotDataByIndex(entity1.slot.slotData.index);

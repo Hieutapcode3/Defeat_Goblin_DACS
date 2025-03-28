@@ -135,7 +135,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &2529915017678183946
 MonoBehaviour:
@@ -363,6 +363,7 @@ MonoBehaviour:
   IsFacingRight: 0
   splashAnim: {fileID: 0}
   firePoint: {fileID: 7173178225240289081}
+  explosion: {fileID: 0}
 --- !u!210 &-4122988665967177900
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -373,7 +374,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_SortAtRoot: 0
 --- !u!114 &2538315592958549164
 MonoBehaviour:
@@ -449,7 +450,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.18, y: 0.91}
   serializedVersion: 2
-  m_Radius: 2.7
+  m_Radius: 3.3
 --- !u!1001 &2872793855196361456
 PrefabInstance:
   m_ObjectHideFlags: 0

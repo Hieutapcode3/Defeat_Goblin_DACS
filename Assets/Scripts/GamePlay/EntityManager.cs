@@ -45,6 +45,7 @@ public class EntityManager : BaseSingleton<EntityManager>
                     SlotController slotController = SlotManager.Instance.GetFirstEmptySlot();
                     if (slotController != null)
                     {
+                        AudioManager.Instance.PlaySoundEffect(SoundEffect.Buy);
                         int price = gameData.GetCharacterPrice();
                         if (GoldManager.Instance.SpendGold(price, GoldDecreaseParticle))
                         {
@@ -81,6 +82,7 @@ public class EntityManager : BaseSingleton<EntityManager>
                     SlotController slotController = SlotManager.Instance.GetFirstEmptySlot();
                     if (slotController != null)
                     {
+                        AudioManager.Instance.PlaySoundEffect(SoundEffect.Buy);
                         int price = gameData.GetPetPrice();
                         if (GoldManager.Instance.SpendGold(price, GoldDecreaseParticle))
                         {

@@ -211,7 +211,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &4723453658767395595
 MonoBehaviour:
@@ -325,9 +325,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd247fdebe224b9a84162ca2964bce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: 0
+  attackRange: 1.5
   entityData: {fileID: 0}
   slot: {fileID: 0}
   IsFacingRight: 0
+  splashAnim: {fileID: 0}
+  firePoint: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!210 &3620811011818100816
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -338,7 +343,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_SortAtRoot: 0
 --- !u!114 &1686087392656876269
 MonoBehaviour:

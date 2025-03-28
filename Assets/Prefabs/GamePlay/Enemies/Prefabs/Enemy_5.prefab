@@ -211,7 +211,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &6531819725940044050
 MonoBehaviour:
@@ -331,6 +331,8 @@ MonoBehaviour:
   slot: {fileID: 0}
   IsFacingRight: 0
   splashAnim: {fileID: 0}
+  firePoint: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!210 &8415863048004736161
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -341,7 +343,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_SortAtRoot: 0
 --- !u!114 &4049956746186059401
 MonoBehaviour:

@@ -72,7 +72,7 @@ public class LevelUI : BaseUI
                 }
                 levelButton.onClick.AddListener(() =>
                 {
-                    AudioManager.Instance.PlaySoundEffect(SoundEffect.Cancel);
+                    //AudioManager.Instance.PlaySoundEffect(SoundEffect.Cancel);
                     AnimationManager.Instance.ShakeTransform(levelButton.transform);
                 });
             }
